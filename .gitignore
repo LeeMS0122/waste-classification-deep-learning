@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+
+.codex/
+.agents/
+
+wandb/
+runs/
+
+*.pt
+*.pth
+*.onnx
+
+*.log
+*.tmp
