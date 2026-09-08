@@ -3,7 +3,7 @@ import json
 import csv
 from collections import Counter, defaultdict
 
-DATA_ROOT = "/home/minsu/disk_c/trash_dataset/085.생활_폐기물_이미지/01.데이터"
+DATA_ROOT = os.environ["WASTE_DATA_ROOT"]
 
 splits = ["1.Training", "2.Validation"]
 json_exts = (".Json", ".json")

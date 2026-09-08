@@ -1,7 +1,8 @@
+import os
 import wandb
 from ultralytics import YOLO
 
-DATA_YAML = "/home/minsu/disk_c/trash_dataset_yolo_detection_v3/data.yaml"
+DATA_YAML = os.environ["WASTE_DATA_YAML"]
 MODEL_NAME = "yolo26s.pt"
 
 run = wandb.init(
@@ -31,11 +32,10 @@ results = model.train(
     device=1,
     workers=16,
     max_det=50,
-    project="/home/minsu/disk_a/miniconda3/graduation_work/runs",
+    project=os.getenv("WASTE_RUNS_DIR", "runs"),
     name="v26s_b128_e50",
     plots=True,
     save=True,
 )
 
 wandb.finish()
-

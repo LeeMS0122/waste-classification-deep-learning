@@ -1,11 +1,13 @@
+import os
 import wandb
 from ultralytics import YOLO
 
-RUN_ID = "m2vv3xw3"
-LAST_PT = "/home/minsu/disk_a/miniconda3/graduation_work/runs/v26s_b128_e50/weights/last.pt"
+RUN_ID = os.environ["WANDB_RUN_ID"]
+WANDB_ENTITY = os.environ["WANDB_ENTITY"]
+LAST_PT = os.environ["WASTE_LAST_PT"]
 
 wandb.init(
-    entity="minsujang22-seokyeong-university",
+    entity=WANDB_ENTITY,
     project="waste-details",
     id=RUN_ID,
     resume="must",

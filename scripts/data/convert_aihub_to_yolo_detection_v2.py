@@ -7,8 +7,8 @@ from collections import Counter, defaultdict
 # =========================
 # 경로 설정
 # =========================
-DATA_ROOT = "/home/minsu/disk_c/trash_dataset/085.생활_폐기물_이미지/01.데이터"
-OUTPUT_ROOT = "/home/minsu/disk_c/trash_dataset_yolo_details_v2"
+DATA_ROOT = os.environ["WASTE_DATA_ROOT"]
+OUTPUT_ROOT = os.getenv("WASTE_YOLO_OUTPUT_ROOT", "outputs/trash_dataset_yolo_details_v2")
 
 SPLIT_MAP = {
     "1.Training": "train",

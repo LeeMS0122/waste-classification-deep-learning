@@ -2,7 +2,7 @@ import os
 import random
 from PIL import Image, ImageDraw, ImageFont
 
-DATA_ROOT = "/home/minsu/disk_c/trash_dataset_yolo_details_v2"
+DATA_ROOT = os.getenv("WASTE_YOLO_OUTPUT_ROOT", "outputs/trash_dataset_yolo_details_v2")
 OUT_DIR = os.path.join(DATA_ROOT, "sample_checks")
 os.makedirs(OUT_DIR, exist_ok=True)
 
