@@ -63,6 +63,8 @@ flowchart LR
   - 해상도 기준 좌표 정규화
   - 누락 이미지·잘못된 좌표·변환 오류 로그 생성
 
+데이터 출처: [AI Hub 생활 폐기물 이미지](https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=140)
+
 | ID | 탐지 클래스 |
 |---:|---|
 | 0 | 플라스틱류 |
@@ -84,11 +86,11 @@ flowchart LR
 주요 스크립트:
 
 ```text
-convert_aihub_to_yolo_detection_v3.py  # AI Hub → YOLO 데이터 변환
-count_details_structure.py             # 원본 라벨 구조 및 클래스 집계
-check_yolo_samples.py                  # 변환 데이터 샘플 검증
-train_yolo_wandb.py                    # YOLO 학습 및 W&B 기록
-resume_yolo26_wandb.py                 # 중단 학습 재개
+scripts/data/convert_aihub_to_yolo_detection_v3.py  # AI Hub → YOLO 데이터 변환
+scripts/data/count_details_structure.py             # 원본 라벨 구조 및 클래스 집계
+scripts/data/check_yolo_samples.py                  # 변환 데이터 샘플 검증
+scripts/training/train_yolo_wandb.py                 # YOLO 학습 및 W&B 기록
+scripts/training/resume_yolo26_wandb.py              # 중단 학습 재개
 ```
 
 ## 앱 구조
@@ -164,11 +166,12 @@ bunrion/build/app/outputs/flutter-apk/app-debug.apk
 | State & Navigation | Riverpod, go_router |
 | Device & Storage | camera, image_picker, shared_preferences |
 
-## 공개 범위
+## 데이터 및 공개 범위
 
-- 현재 비공개 저장소
+- 소스 코드 공개 저장소
 - AI Hub 원본 데이터 및 대용량 학습 산출물 제외
 - 앱 실행에 필요한 TFLite 모델 포함
+- 원본 데이터 재배포 없이 학습 결과물과 구현 코드만 공개
 
 ---
 
